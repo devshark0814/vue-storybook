@@ -1,0 +1,29 @@
+const path = require('path')
+
+module.exports = {
+  "stories": [
+    "../src/**/*.stories.mdx",
+    "../src/**/*.stories.@(js|jsx|ts|tsx)"
+  ],
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials"
+  ],
+  "framework": "@storybook/vue",
+
+  // webpackの設定
+  webpackFinal: async (config, { configType }) => {
+    // @がsrcディレクトリをさすように設定
+    config.resolve.alias['@'] = path.resolve(__dirname, '..', 'src')
+    // sass-loaderを設定
+    config.module.rules.push({
+      test: /\.sass$/,
+      use: [
+        'style-loader',
+        'css-loader',
+        'sass-loader',
+      ],
+    })
+    return config
+  },
+}

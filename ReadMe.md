@@ -62,3 +62,31 @@ new Vue({
   template: '<App/>'
 })
 ~~~
+
+## Storybook
+
+### install
+~~~
+npx sb init
+~~~
+
+### vue-loaderエラー
+
+* バージョンが古いから発生した模様？
+~~~
+yarn upgrade vue-loader@15.0.0
+~~~
+
+### babelエラー
+
+* こちらは設定ファイルの中身がよくなった模様？
+  * 本家の対応をやって解決
+    * https://storybook.js.org/docs/vue/configure/babel#generate-a-babelrc
+~~~
+npx sb@next babelrc
+~~~
+* プロジェクトルートフォルダにある「.babel」をリネーム
+  * 上記コマンドで生成されたファイル「.babelrc.json」と設定がかぶるためリネームする
+
+### 稼働確認
+* http://localhost:6006
