@@ -19,5 +19,12 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({})
 Default.args = {
+  icon: '',
   text: 'できた！'
+}
+
+export const 登録ボタン = Template.bind({})
+登録ボタン.args = {
+  icon: '',
+  text: '登録する'
 }
